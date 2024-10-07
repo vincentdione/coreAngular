@@ -3,6 +3,19 @@ mat-toolbar {
   position: relative;
   z-index: 5;
   justify-content: space-between;
+
+
 }
 
+mat-toolbar .mat-icon-button {
+  border: none !important;
+}
 
+.right-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.right-header button {
+  margin-left: 10px;
+}

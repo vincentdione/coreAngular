@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { DrawerComponent } from './drawer/drawer.component';
+import { KeycloakService } from '../../services/keycloak/keycloak.service';
 
 export type MenuItem = {
   icon: string;
@@ -26,6 +27,8 @@ export type MenuItem = {
 })
 export class DefaultLayoutComponent {
 
+  constructor(private keycloak: KeycloakService){}
+
   collapsed = signal(false);
 
   sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');
@@ -35,6 +38,10 @@ export class DefaultLayoutComponent {
   setDarkMode = effect(() => {
     document.documentElement.classList.toggle('dark',this.darkmode());
   });
+
+  logout(){
+    this.keycloak.logout();
+  }
 
   // constructor() {
   //   effect(() => {

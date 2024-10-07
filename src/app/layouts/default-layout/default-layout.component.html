@@ -2,13 +2,18 @@
   <button mat-icon-button (click)="collapsed.set(!collapsed())" >
     <mat-icon>menu</mat-icon>
   </button>
-  <button mat-icon-button (click)="darkmode.set(!darkmode())">
-    @if(darkmode()){
-      <mat-icon>light_mode</mat-icon>
-    } @else {
-      <mat-icon>dark_mode</mat-icon>
-    }
-   </button>
+  <div class="right-header">
+    <button mat-icon-button (click)="darkmode.set(!darkmode())">
+      @if(darkmode()){
+        <mat-icon>light_mode</mat-icon>
+      } @else {
+        <mat-icon>dark_mode</mat-icon>
+      }
+     </button>
+     <button mat-icon-button (click)="logout()" >
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
 <app-header [sidenavWidth]="sidenavWidth()" [collapsed]="collapsed()"></app-header>
 <router-outlet />
