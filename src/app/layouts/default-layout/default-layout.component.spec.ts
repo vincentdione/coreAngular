@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DefaultLayoutComponent } from './default-layout.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('DefaultLayoutComponent', () => {
   let component: DefaultLayoutComponent;
@@ -8,7 +11,10 @@ describe('DefaultLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DefaultLayoutComponent]
+      imports: [NoopAnimationsModule,DefaultLayoutComponent],
+      providers: [
+        { provide: ActivatedRoute, useValue: { params: of({}) } } // Simule ActivatedRoute
+      ]
     })
     .compileComponents();
 

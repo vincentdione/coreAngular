@@ -14,16 +14,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'videko-ihm' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('videko-ihm');
-  });
 
-  it('should render title', () => {
+  it('should contain a RouterOutlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, videko-ihm');
+    const routerOutlet = compiled.querySelector('router-outlet');
+    expect(routerOutlet).not.toBeNull();
   });
 });

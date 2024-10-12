@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DrawerComponent } from './drawer.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DrawerComponent', () => {
   let component: DrawerComponent;
@@ -8,7 +9,7 @@ describe('DrawerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DrawerComponent]
+      imports: [DrawerComponent,NoopAnimationsModule]
     })
     .compileComponents();
 

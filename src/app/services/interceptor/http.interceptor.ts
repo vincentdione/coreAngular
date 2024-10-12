@@ -11,11 +11,7 @@ export class HttpTokenInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log("********************************")
-    console.log(this.keycloakService.keycloak)
-    console.log("********************************")
     const token = this.keycloakService.keycloak.token;
-    console.log('Token:', token);  // Vérifiez que le token est présent ici
     if (token) {
       const authReq = request.clone({
         headers: new HttpHeaders({

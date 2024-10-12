@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, effect, input, signal } from '@angular/core';
+import { Component, effect, Input, input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,8 +25,7 @@ import { MenuItem } from '../sidenav/sidenav.component';
 })
 export class MenuItemComponent {
 
-  item = input.required<MenuItem>();
-
+  @Input() item!: MenuItem;
   collapsed = input(false);
 
   nestedMenuOpen = signal(false)
@@ -36,7 +35,7 @@ export class MenuItemComponent {
   logRoutes = effect(() => console.log(this.routeHistory()))
 
   toggleNested(){
-    if(!this.item().subItems){
+    if(!this.item.subItems){
       return;
     }
 

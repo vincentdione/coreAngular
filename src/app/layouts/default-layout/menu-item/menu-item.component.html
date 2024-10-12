@@ -1,17 +1,17 @@
 <a mat-list-item
 class="menu-item"
-[routerLink]=" routeHistory() + '/' +item().route"
+[routerLink]=" routeHistory() + '/' +item.route"
 (click)="toggleNested()"
 routerLinkActive="selected-menu-item"
 #rla="routerLinkActive"
 [activated]="rla.isActive"
  >
-  <mat-icon [fontSet]="rla.isActive ? 'material-icons': 'material-icons-outlined' " matListItemIcon>{{item().icon}}</mat-icon>
+  <mat-icon [fontSet]="rla.isActive ? 'material-icons': 'material-icons-outlined' " matListItemIcon>{{item.icon}}</mat-icon>
   @if (!collapsed()) {
-    <span matListItemTitle>{{item().label}}</span>
+    <span matListItemTitle>{{item.label}}</span>
   }
 
-  @if(item().subItems){
+  @if(item.subItems){
     <span matListItemMeta>
       @if(nestedMenuOpen()){
         <mat-icon>expand_less</mat-icon>
@@ -23,10 +23,10 @@ routerLinkActive="selected-menu-item"
 
 </a>
 
-@if(item().subItems && nestedMenuOpen()){
+@if(item.subItems && nestedMenuOpen()){
   <div @expandContractMenu>
-    @for (subItem of item().subItems; track subItem.label) {
-     <app-menu-item [item]="subItem" [collapsed]="collapsed()" [routeHistory]="routeHistory() + '/' + item().route" />
+    @for (subItem of item.subItems; track subItem.label) {
+     <app-menu-item [item]="subItem" [collapsed]="collapsed()" [routeHistory]="routeHistory() + '/' + item.route" />
     }
   </div>
 }

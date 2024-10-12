@@ -7,6 +7,7 @@
     "version": "node ajoute_la_version_au_dist.js",
     "postbuild": "npm run version",
     "start": "ng serve",
+    "sonar": "sonar-scanner -Dproject.settings=sonar-project.properties",
     "build": "ng build",
     "watch": "ng build --watch --configuration development"
   },
@@ -44,6 +45,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "sonar-scanner": "^3.1.0",
+    "sonarqube-scanner": "^4.2.3",
     "ts-node": "^10.9.2",
     "typescript": "~5.5.2"
   }
