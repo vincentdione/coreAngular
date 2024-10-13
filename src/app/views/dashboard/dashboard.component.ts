@@ -17,14 +17,14 @@ export class DashboardComponent {
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit(): void {
-    this.restaurantService.getRestaurants().subscribe(
-      (data) => {
-        this.restaurants = data;
-      },
-      (error) => {
-        console.error('Erreur lors du chargement des restaurants:', error);
-      }
-    );
+    // this.restaurantService.getRestaurants().subscribe(
+    //   (data) => {
+    //     this.restaurants = data;
+    //   },
+    //   (error) => {
+    //     console.error('Erreur lors du chargement des restaurants:', error);
+    //   }
+    // );
   }
 
 }
