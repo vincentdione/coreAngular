@@ -6,10 +6,12 @@ import { RestaurantService } from './restaurant.service';
 describe('RestaurantService', () => {
   let service: RestaurantService;
   let httpMock: HttpTestingController;
+  const mockApiUrl = '';  // URL factice ou vide pour le test
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],  // <-- Utilisez HttpClientTestingModule
+      imports: [HttpClientTestingModule],
+      providers: [{ provide: 'API_URL', useValue: mockApiUrl }],  // Injectez l'URL factice
     });
     service = TestBed.inject(RestaurantService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -30,7 +32,8 @@ describe('RestaurantService', () => {
       expect(restaurants).toEqual(mockRestaurants);
     });
 
-    const req = httpMock.expectOne('http://localhost:8084/restaurant/public/list');
+    // Utilisez l'URL factice pour simuler la requête
+    const req = httpMock.expectOne('/restaurant/public/list');
     expect(req.request.method).toBe('GET');
     req.flush(mockRestaurants);  // Simulez la réponse avec des données mockées
   });

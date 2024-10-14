@@ -11,7 +11,10 @@ describe('DashboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule, DashboardComponent], // Mettez HttpClientModule ici
-      providers: [RestaurantService], // Ajouter les services ici
+      providers: [RestaurantService,
+        { provide: 'API_URL', useValue: '' }, // Fournissez un mock pour API_URL
+
+      ], // Ajouter les services ici
     })
     .compileComponents();
 
